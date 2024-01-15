@@ -1,15 +1,9 @@
 import { ImageBackground, Text, View } from "react-native";
 import { useEffect, useState } from "react";
 import { Product } from "../types/product";
-import { RouteProp } from "@react-navigation/native";
-import { HomeNavigationProps, RootStackParamList } from "../types/navigation";
+import { StackScreenProps } from "../types/navigation";
 
-type ProductScreen = {
-  route: RouteProp<RootStackParamList, "ProductScreen">;
-  navigation: HomeNavigationProps;
-};
-
-export const ProductScreen = ({ route }: ProductScreen) => {
+export const ProductScreen = ({ route }: StackScreenProps<"ProductScreen">) => {
   const { params } = route;
   const [product, setProduct] = useState<Product | undefined>();
   useEffect(() => {

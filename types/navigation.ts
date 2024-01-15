@@ -1,12 +1,12 @@
-import { StackNavigationProp, createStackNavigator } from "@react-navigation/stack";
+import { RouteProp } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 export type RootStackParamList = {
   HomeScreen: undefined;
   ProductScreen: { productId: number };
 };
 
-export type ProductNavigationProps = StackNavigationProp<RootStackParamList, "ProductScreen">;
-
-export type HomeNavigationProps = StackNavigationProp<RootStackParamList, "HomeScreen">;
-
-export type AppNavigationProps = HomeNavigationProps | ProductNavigationProps;
+export type StackScreenProps<T extends keyof RootStackParamList> = {
+  route: RouteProp<RootStackParamList, T>;
+  navigation: StackNavigationProp<RootStackParamList, T>;
+};

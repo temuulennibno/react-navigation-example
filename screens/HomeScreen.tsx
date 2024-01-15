@@ -1,15 +1,9 @@
 import { useEffect, useState } from "react";
 import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
 import { Product } from "../types/product";
-import { RouteProp } from "@react-navigation/native";
-import { HomeNavigationProps, RootStackParamList } from "../types/navigation";
+import { StackScreenProps } from "../types/navigation";
 
-type HomeScreenProps = {
-  route: RouteProp<RootStackParamList, "HomeScreen">;
-  navigation: HomeNavigationProps;
-};
-
-export const HomeScreen = ({ navigation }: HomeScreenProps) => {
+export const HomeScreen = ({ navigation }: StackScreenProps<"HomeScreen">) => {
   const [products, setProducts] = useState<Product[]>([]);
   useEffect(() => {
     fetch("https://dummyjson.com/products")
